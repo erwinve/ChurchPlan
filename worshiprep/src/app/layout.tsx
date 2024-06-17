@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex h-screen bg-gray-100 text-slate-900">
+        <div className="flex h-screen bg-gray-100 text-slate-900 min-h-screen">
           <div className="p-4 bg-white w-64">
             <h2 className="font-semibold text-xl mb-4">WorshipRep</h2>
             <nav>
