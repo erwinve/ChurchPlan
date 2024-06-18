@@ -13,18 +13,21 @@ const Page: React.FC = () => {
     };
 
     return (
-        <div className="grid grid-cols-12 gap-4 h-full items-center justify-center text-lg">
-            {step > 1 && (
-                <button onClick={handlePrevious} className="col-start-2 col-span-1 rounded-full bg-white p-4 shadow-sm flex items-center justify-center">
-                    <svg className="h-5 w-5 ml-2 arrow1 transform rotate-180 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
-                    Previous
-                </button>
-            )}
+        <div className="flex justify-around items-center w-full h-full">
+            
+            <button onClick={handlePrevious} className={`rounded-full bg-white p-4 shadow-sm flex items-center justify-center ${step <= 1 ? 'opacity-0' : ''}`}>
+                <svg className="h-5 w-5 ml-2 arrow1 transform rotate-180 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+                Previous
+            </button>
+            
 
-            <div className="col-start-4 col-span-6">
-                <h1 className="text-4xl font-bold mb-10 text-center">{step}. Create a new song</h1>
+            <div className="flex-grow max-w-50 mx-4">
+                <h1 className="text-4xl font-bold mb-10 text-center">{step}. 
+                {step === 1 && (" Create a new song")}
+                {step === 2 && (" Add chordsheet and lyrics")}
+                </h1>
                 <form className='group relative'>
                     {step === 1 && (
                         <>
@@ -61,9 +64,9 @@ const Page: React.FC = () => {
                 </form>
             </div>
 
-            <button onClick={handleContinue} className="col-start-11 col-span-1 rounded-full bg-white p-4 shadow-sm flex items-center justify-center">
+            <button onClick={handleContinue} className="rounded-full bg-white p-4 shadow-sm flex items-center justify-center">
                 Continue
-                <svg className="h-5 w-5 ml-2 arrow1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="h-4 w-4 md:h-5 md:w-5 ml-2 arrow1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
             </button>

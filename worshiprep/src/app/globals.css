@@ -26,6 +26,10 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.max-w-50 {
+  max-width: 50%;
+}
+
 .timesign {
   letter-spacing: 2px;
 }

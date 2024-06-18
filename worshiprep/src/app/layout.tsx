@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex h-screen bg-gray-100 text-slate-900 min-h-screen">
           <div className="p-4 bg-white w-64">
-            <h2 className="font-semibold text-xl mb-4">WorshipRep</h2>
+            <h2 className="font-semibold text-xl mb-4">Reportoire</h2>
             <nav>
               <Link href="/" className="flex items-center mb-2 text-gray-700 hover:text-gray-900">
                 <HomeIcon className="h-5 w-5 mr-2" />
