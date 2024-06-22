@@ -1,8 +1,11 @@
 import React from 'react';
 import { LiturgyItem } from "../components/liturgy-item";
 import Link from "next/link"
+import { fetchSongs } from "../lib/data";
 
-const Page: React.FC = () => {
+export default async function Page() {
+    const songs = await fetchSongs();
+    console.log(songs);
     return (
         <div>
             <ul className="grid grid-cols-12 gap-4 mb-10 text-sm leading-6">
@@ -27,6 +30,18 @@ const Page: React.FC = () => {
                     <div className="col-span-1 text-right">Creation date</div>
                 </div>
                 </li>
+                {songs.map((song, index) => (
+                    <LiturgyItem
+                    key={song.id}
+                    title={song.song_name}
+                    songKey={song.song_key}
+                    timeSignature={song.timesign}
+                    // Assuming bpm and dateAdded are not provided by the song object and are static or calculated values
+                    bpm="120"
+                    dateAdded="2021-09-01"
+                    position={index === 0 ? 'top' : 'middle'} // Example logic for position
+                    />
+                ))}
                 <LiturgyItem title="Song 1" songKey="C" timeSignature="4/4" bpm="120" dateAdded="2021-09-01" position="top" />
                 <LiturgyItem title="Song 1" songKey="C" timeSignature="4/4" bpm="120" dateAdded="2021-09-01" position="middle" />
                 <LiturgyItem title="Song 1" songKey="C" timeSignature="4/4" bpm="120" dateAdded="2021-09-01" position="bottom" />
@@ -35,5 +50,3 @@ const Page: React.FC = () => {
         </div>
     );
 };
-
-export default Page;

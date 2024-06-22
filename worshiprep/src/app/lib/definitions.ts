@@ -7,7 +7,7 @@ export type Song = {
   song_name: string;
   artist_name: string;
   song_key: string;
-  time_signature: string;
+  timesign: string;
   chordsheet: string;
 };
 

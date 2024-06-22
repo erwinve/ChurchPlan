@@ -11,7 +11,7 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 
-export async function fetchSong() {
+export async function fetchSongs() {
   try {
     const data = await sql<Song>`SELECT * FROM songs`;
 
