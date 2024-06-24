@@ -38,6 +38,12 @@ body {
   letter-spacing: 2px;
 }
 
+.parentlist > div {
+  display: flex;
+  align-items: center;
+
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

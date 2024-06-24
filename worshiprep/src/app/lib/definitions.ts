@@ -4,9 +4,9 @@
 // However, these types are generated automatically if you're using an ORM such as Prisma.
 export type Song = {
   id: string;
-  song_name: string;
-  artist_name: string;
-  song_key: string;
+  songname: string;
+  artistname: string;
+  key: string;
   timesign: string;
   chordsheet: string;
 };

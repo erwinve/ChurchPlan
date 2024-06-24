@@ -5,7 +5,8 @@ import { fetchSongs } from "../lib/data";
 
 export default async function Page() {
     const songs = await fetchSongs();
-    console.log(songs);
+
+
     return (
         <div>
             <ul className="grid grid-cols-12 gap-4 mb-10 text-sm leading-6">
@@ -21,30 +22,28 @@ export default async function Page() {
             
             <div className="w-full">
                 <ul className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 text-sm leading-6 font-medium">
-                <li className="grid">
-                <div className="grid px-5 py-3 grid-cols-8">
-                    <div className="col-span-4">Title</div>
-                    <div className="col-span-1">Key</div>
-                    <div className="col-span-1">Time signature</div>
-                    <div className="col-span-1">BPM</div>
-                    <div className="col-span-1 text-right">Creation date</div>
-                </div>
-                </li>
-                {songs.map((song, index) => (
-                    <LiturgyItem
-                    key={song.id}
-                    title={song.song_name}
-                    songKey={song.song_key}
-                    timeSignature={song.timesign}
-                    // Assuming bpm and dateAdded are not provided by the song object and are static or calculated values
-                    bpm="120"
-                    dateAdded="2021-09-01"
-                    position={index === 0 ? 'top' : 'middle'} // Example logic for position
-                    />
-                ))}
-                <LiturgyItem title="Song 1" songKey="C" timeSignature="4/4" bpm="120" dateAdded="2021-09-01" position="top" />
-                <LiturgyItem title="Song 1" songKey="C" timeSignature="4/4" bpm="120" dateAdded="2021-09-01" position="middle" />
-                <LiturgyItem title="Song 1" songKey="C" timeSignature="4/4" bpm="120" dateAdded="2021-09-01" position="bottom" />
+                    <li className="grid">
+                    <div className="grid px-5 py-3 grid-cols-8">
+                        <div className="col-span-3">Title</div>
+                        <div className="col-span-1">Key</div>
+                        <div className="col-span-1">Time signature</div>
+                        <div className="col-span-1">BPM</div>
+                        <div className="col-span-1">Creation date</div>
+                    </div>
+                    </li>
+                    {songs.map((song, index) => (
+                        <LiturgyItem
+                        id={song.id}
+                        key={index}
+                        title={song.songname}
+                        songKey={song.key}
+                        timeSignature={song.timesign}
+                        // Assuming bpm and dateAdded are not provided by the song object and are static or calculated values
+                        bpm="120"
+                        dateAdded="2021-09-01"
+                        position={index === 0 ? 'top' : index === songs.length - 1 ? 'bottom' : 'middle'}
+                        />
+                    ))}
                 </ul>
             </div>
         </div>
