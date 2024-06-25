@@ -11,7 +11,8 @@ export const SongForm: React.FC<SongFormProps> = ({ song, id }) => {
     const [step, setStep] = useState(1);
     const [src, setSrc] = useState("");
     const [filename, setFilename] = useState<string | null>(null);
-    const currentPage = window.location.href;
+    const currentPage = typeof window !== 'undefined' ? window.location.href : 'unknown';
+    console.log(currentPage);
     let pageMode;
 
     if (currentPage.includes('edit')) {
